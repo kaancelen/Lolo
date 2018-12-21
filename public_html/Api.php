@@ -1,5 +1,6 @@
 <?php
 require_once 'BaseAPI.php';
+require_once 'db/database.php';
 
 class API extends BaseAPI
 {
@@ -30,6 +31,8 @@ class API extends BaseAPI
      */
      protected function example() {
         if ($this->method == 'GET') {
+            $db = Database::getInstance();
+            $mysqli = $db->getConnection(); 
             return "Your name is " . $this->User->name;
         } else {
             return "Only accepts GET requests";

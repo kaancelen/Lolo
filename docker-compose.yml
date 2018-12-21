@@ -5,6 +5,8 @@ services:
       context: './php/'
       args:
        PHP_VERSION: ${PHP_VERSION}
+    links:
+      - mysql
     volumes:
       - ./public_html/:/var/www/html/
     container_name: php
